@@ -1,6 +1,8 @@
 index.html
 appointment.html
-
+success.html
+about.html
+contact.html
 css/
 js/
 img/
@@ -8,4 +10,4 @@ img/
 /about        /about.html        200
 /contact     /contact.html      200
 /appointment /appointment.html  200
-/success     /success.html 200
+/success       /success.html       200
