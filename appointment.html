@@ -165,7 +165,7 @@
 		                        <h2>Make an Appointment</h2>
 		                    </div>
 		                    <div class="page-appointment-box">
-		                       <!-- ✅ NETLIFY FORM START -->
+		                       <!-- ✅ NETLIFY FORM START 
 								<form
 									name="appointment"
 									method="POST"
@@ -216,7 +216,121 @@
 		                                    </div>
 		                                </div>
 		                            </div>
-		                        </form>
+		                        </form>-->
+								<div
+									id="form-success-message"
+									style="display:none; margin-top:20px;"
+									class="alert alert-success"
+									>
+									✅ Your appointment has been submitted successfully.
+									We will contact you shortly.
+								</div>
+								<form
+									action="https://docs.google.com/forms/d/e/1FAIpQLScM5Z66jW9En_iw4WiH8a8tkrAfPY5fzzTASn0_magyIoEdKA/formResponse"
+									method="POST"
+									target="hidden_iframe"
+									>
+
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="single-input">
+												<input
+													name="entry.1611029666"
+													id="user-first-name"
+													placeholder="First Name"
+													type="text"
+													required
+												>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="single-input">
+												<input
+													name="entry.1620720010"
+													id="user-last-name"
+													placeholder="Last Name"
+													type="text"
+													required
+												>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="single-input">
+												<input
+													name="entry.1375242707"
+													id="user-phone"
+													placeholder="Phone"
+													type="text"
+													required
+												>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="single-input">
+												<input
+													name="entry.405519887"
+													id="user-email"
+													placeholder="Email"
+													type="email"
+													required
+												>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="single-input">
+												<input
+													name="entry.83624434"
+													id="user-subject"
+													placeholder="Subject"
+													type="text"
+												>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="single-input">
+												<input
+													name="entry.1969138150"
+													id="user-select-date"
+													placeholder="Select Date"
+													type="date"
+													required
+												>
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="single-input">
+												<textarea
+													name="entry.667876810"
+													cols="30"
+													rows="5"
+													placeholder="Message"
+												></textarea>
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="single-input button">
+												<button type="submit" class="default-btn">
+													Send Now <i class="icofont icofont-long-arrow-right"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+
+								</form>
+								
+
+								<iframe
+								name="hidden_iframe"
+								style="display:none;"
+								></iframe>
 		                        <p class="form-messege"></p>
 		                    </div>
 		                </div>
@@ -376,5 +490,25 @@
 	<script src="js/plugins.js"></script>
 	<!--Main Js-->
 	<script src="js/main.js"></script>
+	<script>
+  let formSubmitted = false;
+
+  const form = document.querySelector("form");
+  const iframe = document.querySelector("iframe[name='hidden_iframe']");
+  const successMessage = document.getElementById("form-success-message");
+
+  form.addEventListener("submit", function () {
+    formSubmitted = true;
+  });
+
+  iframe.addEventListener("load", function () {
+    if (formSubmitted) {
+      successMessage.style.display = "block";
+      form.reset(); // optional
+      formSubmitted = false;
+    }
+  });
+</script>
+
 </body>
 </html>
